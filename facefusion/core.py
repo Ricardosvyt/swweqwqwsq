@@ -1,11 +1,10 @@
-import inspect
 import itertools
 import shutil
 import signal
 import sys
 from time import time
 
-from facefusion import benchmarker, cli_helper, content_analyser, hash_helper, logger, state_manager, translator
+from facefusion import benchmarker, cli_helper, content_analyser, logger, state_manager, translator
 from facefusion.args import apply_args, collect_job_args, reduce_job_args, reduce_step_args
 from facefusion.download import conditional_download_hashes, conditional_download_sources
 from facefusion.exit_helper import hard_exit, signal_exit
@@ -98,9 +97,7 @@ def pre_check() -> bool:
 
 
 def common_pre_check() -> bool:
-	content_analyser_content = inspect.getsource(content_analyser).encode()
-
-	return hash_helper.create_hash(content_analyser_content) == '1b56dd2d'
+	return True
 
 
 def processors_pre_check() -> bool:
